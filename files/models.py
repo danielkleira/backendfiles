@@ -1,8 +1,8 @@
 from django.db import models
+from distutils.command.upload import upload
 
 
 class Files(models.Model):
-    id = models.AutoField(primary_key=True)
     tipo = models.CharField(max_length=255)
     data = models.CharField(max_length=255)
     valor = models.CharField(max_length=255)
@@ -11,3 +11,7 @@ class Files(models.Model):
     hora = models.CharField(max_length=255)
     dono_da_loja = models.CharField(max_length=255)
     nome_loja = models.CharField(max_length=255)
+
+
+class UpFile(models.Model):
+    upFile = models.FileField(upload_to="upFiles/")

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from django.conf import settings
 from .models import Files
+import os
 from rest_framework.views import APIView, Request, Response, status
 from .serializers import UpFileSerializer, FilesSerializer
 
@@ -37,6 +38,9 @@ class FileView(APIView):
             serializer.is_valid(raise_exception=True)
 
             serializer.save()
+        lists = Files.objects.all()
+        serializer = FilesSerializer(lists, many=True)
+        os.remove("uploads/upFiles/CNAB.txt")
         return Response(serializer.data, status.HTTP_201_CREATED)
 
     def get(self, request: Request):

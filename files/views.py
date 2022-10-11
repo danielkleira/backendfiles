@@ -12,7 +12,6 @@ class FileView(APIView):
         with open("uploads/upFiles/CNAB.txt", "r") as line:
             lines = line.readlines()
         for i in lines:
-            print(i)
             tipo = i[0]
             dataPt3 = i[1:5]
             dataPt2 = i[5:7]

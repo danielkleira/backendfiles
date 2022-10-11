@@ -3,14 +3,14 @@ from distutils.command.upload import upload
 
 
 class Files(models.Model):
-    tipo = models.CharField(max_length=255)
+    typeOf = models.CharField(max_length=255)
     data = models.CharField(max_length=255)
-    valor = models.CharField(max_length=255)
+    value = models.CharField(max_length=255)
     cpf = models.CharField(max_length=255)
-    cartao = models.CharField(max_length=255)
-    hora = models.CharField(max_length=255)
-    dono_da_loja = models.CharField(max_length=255)
-    nome_loja = models.CharField(max_length=255)
+    card = models.CharField(max_length=255)
+    time = models.CharField(max_length=255)
+    owner = models.CharField(max_length=255)
+    store = models.CharField(max_length=255)
 
 
 class UpFile(models.Model):

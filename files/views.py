@@ -12,26 +12,26 @@ class FileView(APIView):
         with open("uploads/upFiles/CNAB.txt", "r") as line:
             lines = line.readlines()
         for i in lines:
-            tipo = i[0]
+            typeOf = i[0]
             dataPt3 = i[1:5]
             dataPt2 = i[5:7]
             dataPt1 = i[7:9]
-            valor = int(i[9:19]) / 100
+            value = int(i[9:19]) / 100
             cpf = i[19:30]
-            cartao = i[30:42]
-            hora = i[42:48]
-            dono_da_loja = i[48:62]
-            nome_loja = i[62:81]
+            card = i[30:42]
+            time = i[42:48]
+            owner = i[48:62]
+            store = i[62:81]
 
             infos = {
-                "tipo": tipo,
+                "typeOf": typeOf,
                 "data": dataPt1 + "/" + dataPt2 + "/" + dataPt3,
-                "valor": valor,
+                "value": value,
                 "cpf": cpf,
-                "cartao": cartao,
-                "hora": hora,
-                "dono_da_loja": dono_da_loja,
-                "nome_loja": nome_loja,
+                "card": card,
+                "time": time,
+                "owner": owner,
+                "store": store,
             }
             serializer = FilesSerializer(data=infos)
             serializer.is_valid(raise_exception=True)
